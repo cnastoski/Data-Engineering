@@ -63,7 +63,9 @@ VALUES
 
 question:
 1. Find out all the cust id where the previous (last only) transaction is more then current transaction ammount?
+
 2. Show the cust id, state cd, total trsaction ammount till date (running total) for all the records.
+sum all the trsanction ammount by using window function by cust id, state cd,tran_date
 3. Show all the cust id,state cd, total number of trasaction (Include all the transactio per state cd) and
 total_transaction ammont per state cd, total number of trasaction (don't include any transaction which are less than 1000)
 
@@ -79,6 +81,9 @@ Note : Here in case 1 you are including all the transaction to show the count bu
 with all_cust as (
 select  sum(tran_ammt),tran_date,cust_id from cards_ingest.tran_fact group by 2,3
 )
+
+jdbc:redshift://denov-training.cboqtqcehfy6.us-east-1.redshift.amazonaws.com:5439/dev
+               redshift-cluster-new.cboqtqcehfy6.us-east-1.redshift.amazonaws.com:5439/dev
 
 
 
