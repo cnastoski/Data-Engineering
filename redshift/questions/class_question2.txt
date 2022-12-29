@@ -23,4 +23,4 @@ who are not customer in but still lives in the state (population - number of cus
 (Hint use window function)
 4. Same as question 2. If state cd is NULL  and cust_id is cust_109 then make sure to change to TX  else CA and calculate states where
 company has to spend 2nd lowest $ amount from .
-5. Show mu the total number of customer company has , total population and potential_customer_cnt across all the states
+5. Show me the total number of customer company has , total population and potential_customer_cnt across all the states
