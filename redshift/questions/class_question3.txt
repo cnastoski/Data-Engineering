@@ -1,15 +1,18 @@
 Pat1:
 
-1. Create a python function to generate data : Sample data and store in a CSV file in you laptop.
-The file name: order_data_20220301.csv
-orderid,brand_name,product_name,sales_ammount,sales_date
+1. Create a python function (Script) to generate data : Sample data and store in a CSV file in you laptop.
+The file name: order_data_20220401.csv
 
+
+orderid,brand_name,product_name,sales_ammount,sales_date
+orderid: Unique id with 7 digit number [Pandas function random number]
 brand_name:['Apple','Samsung','Nokia']
 product_name is Key value pair
 product_name:{'Apple':['iphon11','iphone12','iphone13','iphoneSE','IpadMax','IpadMini','laptop256','Macbook512'],
 'Samsung':['galaxy10','galaxy11','galaxy12','galaxy13','watch320','watch340'],
 'Nokia':['Nk320',''Nk400',''Nk500']
-orderid: Unique id with 7 digit number
+sales_ammount : random ammout with (5,2) decimal.
+sales_date : 2022-01-01 to 2022-03-31
 
 Finally data should be like this
 1002346,Apple,iphon11,450,2022-01-06
