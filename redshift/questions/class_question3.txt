@@ -20,6 +20,7 @@ Finally data should be like this
 1002546,Apple,iphoneSE,350,2022-03-06
 
 
+Hard Code the nunber of records:
 
 
 script will have one input parameter : Number of records
@@ -35,6 +36,9 @@ def createData(recordcnt):
 if __name__=='__main__':
 
     createData(inputargument)
+
+
+
 
 
 
