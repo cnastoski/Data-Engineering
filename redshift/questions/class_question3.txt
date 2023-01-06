@@ -1,11 +1,11 @@
 Pat1:
 
-1. Create a python function (Script) to generate data : Sample data and store in a CSV file in you laptop.
+1. Create a python function (Script) to generate data : Sample data and store in a CSV file in you laptop. [50000 records]
 The file name: order_data_20220401.csv
 
 
 orderid,brand_name,product_name,sales_ammount,sales_date
-orderid: Unique id with 7 digit number [Pandas function random number]
+orderid: Unique id with 7 digit number in sequence[Pandas function random number]
 brand_name:['Apple','Samsung','Nokia']
 product_name is Key value pair
 product_name:{'Apple':['iphon11','iphone12','iphone13','iphoneSE','IpadMax','IpadMini','laptop256','Macbook512'],
