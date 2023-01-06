@@ -22,7 +22,19 @@ Finally data should be like this
 
 
 
+script will have one input parameter : Number of records
 
+createorderdata.py
+
+import pandas as pd
+
+def createData(recordcnt):
+    codee snipet for the logic
+
+
+if __name__=='__main__':
+
+    createData(inputargument)
 
 
 
