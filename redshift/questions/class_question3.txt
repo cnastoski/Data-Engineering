@@ -12,7 +12,7 @@ product_name:{'Apple':['iphon11','iphone12','iphone13','iphoneSE','IpadMax','Ipa
 'Samsung':['galaxy10','galaxy11','galaxy12','galaxy13','watch320','watch340'],
 'Nokia':['Nk320',''Nk400',''Nk500']
 sales_ammount : random ammout with (5,2) decimal.
-sales_date : 2022-01-01 to 2022-03-31
+sales_date : 2022-01-01 to 2022-03-320221
 
 Finally data should be like this
 1002346,Apple,iphon11,450,2022-01-06
@@ -35,6 +35,7 @@ def createData(recordcnt):
 
 if __name__=='__main__':
 
+    argv[1]
     createData(inputargument)
 
 

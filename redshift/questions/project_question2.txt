@@ -1,0 +1,10 @@
+1. Use the python script to generate data as discussed in friday class.
+2. Create a python script to load data to table in your local instance.
+3. When you create the script make sure you use the project folder as discussed (
+utils :  Module to connect to database
+Config : Store database details.
+scripts : Final code which will invoke both module and load data into the table. T
+
+Note: Table structure you can create using ur sql workbench.
+
+Good luck !!!
