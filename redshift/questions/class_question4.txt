@@ -1,0 +1,4 @@
+1. Build redshift architecture diagram.
+2. What is columnar data format? what are the advantages?
+3. What is encoding? Different type of encoding? A sample create table statement with encoding.
+4. What is distribution key? How it is helpful in query performance.
