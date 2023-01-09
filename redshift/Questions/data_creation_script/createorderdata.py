@@ -41,15 +41,14 @@ def getRandomDates():
 def main():
     # timeit library used to gauge how fast the program runs
     starttime = timeit.default_timer()
-    print(f"The start time is : {starttime:.3f} Seconds")
+
 
     # taking inputs from the command line script
     createData(100000, 'order_data_20230401.csv')
 
 
     endtime = timeit.default_timer()
-    print(f"The end time is: {endtime:.3f} Seconds")
-    print(f"Script Runtime : {(endtime - starttime):.3f} Seconds")
+    print(f"Script finished in : {(endtime - starttime):.3f} Seconds")
 
 
 if __name__ == "__main__":
