@@ -12,7 +12,7 @@ product_name = {
     'Nokia': ['Nk320', 'Nk400', 'Nk500']}
 
 
-def createData(row_amt, file_name):
+def createData(file_name, row_amt):
     orderid = 1000001
     db_file = open(f"C:/Users/cnast/Desktop/aws_learning-main/redshift/Projects/utils/{file_name}", "w")
     db_file.write("orderid, brand_name, product_name, sales_amount, sales_date\n")
@@ -43,7 +43,7 @@ def main():
     starttime = timeit.default_timer()
 
     # taking inputs from the command line script
-    createData(int(sys.argv[1]), sys.argv[2])
+    createData(sys.argv[1], int(sys.argv[2]))
 
 
     endtime = timeit.default_timer()

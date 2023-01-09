@@ -1,9 +1,9 @@
 import redshift.Projects.config.db_details as db
 import psycopg2
 import pandas as pd
-import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.engine.url import URL
+import timeit
 
 engine = create_engine(URL.create(
     db.drivername,
@@ -61,16 +61,26 @@ def do_frameToTable(frame, table_name : str, schema : str) :
     :param table_name: name of table to be overwritten
     :param schema: name of schema that table_name is in
     :param if_exists: {‘fail’, ‘replace’, ‘append’} -- pandas to_sql parameter, defines behavior for frameToTable
+    :param method: method of inserting data into a table, defualt is None: 1 insert clause per row, multi: pass multiple values in a single insert clause
     :return: None or Int
     :rtype: None if rows not returned, Int equal to number of rows affected (if integer returned for rows by sqlalchemy)
     """
     # CLOSE THE ENGINE???
-    return frame.to_sql(table_name, con = engine, schema=schema, if_exists='append', index=False)
+    return frame.to_sql(table_name, con = engine, schema=schema, if_exists='replace', index=False, method='multi')
 
 
 def main():
-    pass
+    file_path = 'C:/Users/cnast/Desktop/aws_learning-main/redshift/Projects/utils/order_data_20230401.csv'
+    table_name = 'phone_sales'
+    schema_name = 'cards_ingest'
+    starttime = timeit.default_timer()
+    print(f"Inserting table {table_name} into {schema_name}...")
 
+    loadFromCSV(file_path, table_name, schema_name)
+
+    endtime = timeit.default_timer()
+    print(f"Success: operation finished in : {(endtime - starttime):.3f} Seconds")
+    return 1
 
 if __name__ == "__main__":
     main()
