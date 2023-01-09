@@ -1,0 +1,53 @@
+Pat1:
+
+1. Create a python function (Script) to generate data : Sample data and store in a CSV file in you laptop. [50000 records]
+The file name: order_data_20220401.csv
+
+
+orderid,brand_name,product_name,sales_ammount,sales_date
+orderid: Unique id with 7 digit number in sequence[Pandas function random number]
+brand_name:['Apple','Samsung','Nokia']
+product_name is Key value pair
+product_name:{'Apple':['iphon11','iphone12','iphone13','iphoneSE','IpadMax','IpadMini','laptop256','Macbook512'],
+'Samsung':['galaxy10','galaxy11','galaxy12','galaxy13','watch320','watch340'],
+'Nokia':['Nk320',''Nk400',''Nk500']
+sales_ammount : random ammout with (5,2) decimal.
+sales_date : 2022-01-01 to 2022-03-31
+
+Finally data should be like this
+1002346,Apple,iphon11,450,2022-01-06
+1002246,Apple,iphon11,460,2022-02-01
+1002546,Apple,iphoneSE,
+,2022-03-06
+
+
+Hard Code the nunber of records:
+
+
+script will have one input parameter : Number of records
+
+createorderdata.py
+
+import pandas as pd
+
+def createData(recordcnt):
+    codee snipet for the logic
+
+
+if __name__=='__main__':
+
+    createData(inputargument)
+
+
+
+
+
+
+
+
+
+
+1. Build redshift architecture diagram.
+2. What is columnar data format? what are the advantages?
+3. What is encoding? Different type of encoding? A sample create table statement with encoding.
+4. What is distribution key? How it is helpful in query performance.

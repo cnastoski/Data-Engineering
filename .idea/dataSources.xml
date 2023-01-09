@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="redshift-quintrix" uuid="8026f8e2-13e9-4c15-a6b2-e4c9d85c7e83">
+      <driver-ref>redshift</driver-ref>
+      <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
+      <jdbc-driver>com.amazon.redshift.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:redshift://quintrix-aws-training.cc8pfomfxbpw.us-east-2.redshift.amazonaws.com:5439/dev</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>
