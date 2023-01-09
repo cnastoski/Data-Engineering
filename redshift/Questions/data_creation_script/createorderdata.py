@@ -3,6 +3,7 @@ import numpy as np
 import random
 from datetime import datetime, timedelta, date
 import timeit
+import sys
 
 brand_name = ['Apple', 'Samsung', 'Nokia']
 product_name = {
@@ -11,9 +12,9 @@ product_name = {
     'Nokia': ['Nk320', 'Nk400', 'Nk500']}
 
 
-def createData(row_amt):
+def createData(row_amt, file_name):
     orderid = 1000001
-    db_file = open("order_data_20220401.csv", "w")
+    db_file = open(f"{file_name}", "w")
     db_file.write("orderid, brand_name, product_name, sales_ammount, sales_date\n")
     for i in range(row_amt):
         rand_brand = np.random.choice(brand_name)  # random brand name from the list
@@ -38,13 +39,19 @@ def getRandomDates():
 
 
 def main():
+    # timeit library used to gauge how fast the program runs
     starttime = timeit.default_timer()
-    print("The start time is :", starttime)
-    createData(100000)
+    print(f"The start time is : {starttime:.3f} Seconds")
+
+    # taking inputs from the command line script
+    createData(100000, 'order_data_20230401.csv')
+
+
     endtime = timeit.default_timer()
-    print(f"The end time is: {endtime}")
-    print("The time difference is :", endtime - starttime)
+    print(f"The end time is: {endtime:.3f} Seconds")
+    print(f"Script Runtime : {(endtime - starttime):.3f} Seconds")
 
 
 if __name__ == "__main__":
     main()
+
