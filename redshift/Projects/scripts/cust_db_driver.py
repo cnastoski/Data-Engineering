@@ -17,11 +17,10 @@ engine = create_engine(URL.create(
 
 def do_query(query: str, args: list):
     """
-    execute postgresql query via postcopg2 on database configured in config/database_connection.py
-    :param query: postgresql query string
-    :param args: arguments for query string (see https://www.psycopg.org/docs/usage.html#the-problem-with-the-query-parameters)
-    :return: pandas DataFrame for query result
-    :rtype: pd.DataFrame
+    execute postgresql query via postcopg2 on database configured in config/database_connection.py :param query:
+    postgresql query string :param args: arguments for query string (see
+    https://www.psycopg.org/docs/usage.html#the-problem-with-the-query-parameters) :return: pandas DataFrame for
+    query result :rtype: pd.DataFrame
     """
     conn = psycopg2.connect(host=db.hostname, user=db.username, password=db.password, dbname=db.database,
                             port=db.port)
@@ -40,11 +39,38 @@ def do_query(query: str, args: list):
 
     return frame
 
+def loadFromCSV(filePathName : str, table_name : str, schema : str):
+    """
+    execute postgresql query to append schema.table_name with frame data on connected database;
+    frame is filled by data in filePathName csv file
+    :param filePathName: csv filename to fill the pandas table with
+    :param table_name: name of table to be overwritten
+    :param schema: name of schema that table_name is in
+    :param dtype: dict of data types for each column (defaults to varchar if nothing entered)
+    :param if_exists: {‘fail’, ‘replace’, ‘append’} -- pandas to_sql parameter, defines behavior for frameToTable
+    :return: None or Int
+    :rtype: None if rows not returned, Int equal to number of rows affected (if integer returned for rows by sqlalchemy)
+    """
+    frame = pd.read_csv(filePathName)
+    return do_frameToTable(frame, table_name, schema)
 
-myConnection = psycopg2.connect(host=db.hostname, user=db.username, password=db.password, dbname=db.database,
-                                port=db.port)
+def do_frameToTable(frame, table_name : str, schema : str) :
+    """
+    execute postgresql query to apend schema.table_name with frame data on connected database
+    :param frame: pandas frame that will overwrite schema.table_name
+    :param table_name: name of table to be overwritten
+    :param schema: name of schema that table_name is in
+    :param if_exists: {‘fail’, ‘replace’, ‘append’} -- pandas to_sql parameter, defines behavior for frameToTable
+    :return: None or Int
+    :rtype: None if rows not returned, Int equal to number of rows affected (if integer returned for rows by sqlalchemy)
+    """
+    # CLOSE THE ENGINE???
+    return frame.to_sql(table_name, con = engine, schema=schema, if_exists='append', index=False)
 
-if myConnection:
-    print("Server successfully accessed")
 
-myConnection.close()
+def main():
+    pass
+
+
+if __name__ == "__main__":
+    main()
