@@ -1,4 +1,26 @@
 1. Build redshift architecture diagram.
+
+    see redshift architecture.drawio
+
 2. What is columnar data format? what are the advantages?
+
+    columnar data format is when data is stored in columns blocks instead of rows. this makes encoding easier since all of the
+    data is of the same type.
+
 3. What is encoding? Different type of encoding? A sample create table statement with encoding.
+
+    encoding is when you specify a type of compression to use on your table in order to save space on the disk. redshift will
+    choose a compression encoding for you if you do not specify one on table creation. two different compression encodings are
+    AZ64 which is great for numbers and Zstandard which is good for data that has a lot of different values such as varchars
+
+    create table encode_test(
+        id int encode AZ64,
+        description varchar(80) encode Zstd
+    )
+
+
 4. What is distribution key? How it is helpful in query performance.
+
+    a distribution key is used to specify where in the nodes the data that you would like is stored so that it optimized
+    in a way that data that is most likely to be queried at the same time is stored together in memory. This helps query
+    performance by having the disk read from fewer places before getting the output.
