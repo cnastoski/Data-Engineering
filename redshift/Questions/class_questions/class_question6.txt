@@ -1,0 +1,22 @@
+1. Create  a file:
+col:
+product_name varchar(20),
+manufacturingcost decimal(5,2)
+
+For each product build record using python script.
+'iphon11','iphone12','iphone13','iphoneSE','IpadMax','IpadMini','laptop256','Macbook512',
+'galaxy10','galaxy11','galaxy12','galaxy13','watch320','watch340'
+'Nk320',''Nk400',''Nk500'
+
+File example:
+iphon11,220
+iphone12,250
+iphone13,290
+
+
+create a table in redshift also.-- table name product_cost
+
+2. Load data into s3 in separate folder (order data must be created earlier in class project 3).
+3. Use copy command  to load data into redshift by.
+4  create a view by joining order and product_cost.
+5. Unload data from view into s3 bucket (this has to be separate bucket then created earlier)
