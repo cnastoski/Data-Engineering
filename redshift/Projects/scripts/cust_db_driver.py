@@ -70,7 +70,7 @@ def do_frameToTable(frame, table_name : str, schema : str) :
 
 
 def main():
-    file_path = 'C:/Users/cnast/Desktop/aws_learning-main/redshift/Questions/data_creation_scripts/manufacturing_price.csv'
+    file_path = 'C:/Users/cnast/Desktop/aws_learning-main/redshift/Questions/data_creation_scripts/order_data_20230401.csv'
     table_name = 'manufacturing_info'
     schema_name = 'cards_ingest'
     starttime = timeit.default_timer()

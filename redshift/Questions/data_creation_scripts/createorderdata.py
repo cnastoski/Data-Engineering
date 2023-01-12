@@ -20,7 +20,7 @@ def createData(row_amt, file_name):
         rand_brand = np.random.choice(brand_name)  # random brand name from the list
         prod_name = np.random.choice(
             product_name[rand_brand])  # random model number from the dict based on random brand
-        price = "{:.2f}".format(round(random.uniform(50.09, 999.09), 2))
+        price = "{:.2f}".format(round(random.uniform(100.02, 999.09), 2))
         sales_date = getRandomDates()
         row = f"{orderid},{rand_brand},{prod_name},{price},{sales_date}\n"
 
