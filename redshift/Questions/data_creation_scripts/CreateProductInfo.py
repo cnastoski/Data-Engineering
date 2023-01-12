@@ -8,17 +8,20 @@ manufacturing_price = ["{:.2f}".format(round(random.uniform(50.09, 300.09), 2)) 
 
 def createManufacturingPrice(file_name: str):
     input_file = open(file_name, 'w')
-    header = "product_id, manufacturing_price\n"
+    header = "product_name, manufacturing_price\n"
     input_file.write(header)
     for idx in range(len(product_id)):
-        row = f"{product_id[idx]}, {manufacturing_price[idx]}\n"
+        row = f"{product_id[idx]},{manufacturing_price[idx]}\n"
         input_file.write(row)
 
     input_file.close()
     return 1
 
+
 def main():
     createManufacturingPrice("manufacturing_price.csv")
+
+    return 1
 
 
 main()

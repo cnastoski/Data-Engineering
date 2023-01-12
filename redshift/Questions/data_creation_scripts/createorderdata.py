@@ -15,14 +15,14 @@ product_name = {
 def createData(row_amt, file_name):
     orderid = 1000001
     db_file = open(f"{file_name}", "w")
-    db_file.write("orderid, brand_name, product_name, sales_ammount, sales_date\n")
+    db_file.write("orderid,brand_name,product_name,sales_amount,sales_date\n")
     for i in range(row_amt):
         rand_brand = np.random.choice(brand_name)  # random brand name from the list
         prod_name = np.random.choice(
             product_name[rand_brand])  # random model number from the dict based on random brand
-        price = round(np.random.uniform(5, 1000), 2)
+        price = "{:.2f}".format(round(random.uniform(50.09, 999.09), 2))
         sales_date = getRandomDates()
-        row = f"{orderid}, {rand_brand}, {prod_name}, {price}, {sales_date} \n"
+        row = f"{orderid},{rand_brand},{prod_name},{price},{sales_date}\n"
 
         db_file.write(row)
         orderid += 1
