@@ -15,7 +15,7 @@ engine = create_engine(URL.create(
 ))
 
 
-def do_query(query: str, args: list):
+def do_query(query: str, args):
     """
     execute postgresql query via postcopg2 on database configured in config/database_connection.py :param query:
     postgresql query string :param args: arguments for query string (see
@@ -76,7 +76,7 @@ def main():
     starttime = timeit.default_timer()
     print(f"Inserting table {table_name} into {schema_name}...")
 
-    loadFromCSV(file_path, table_name, schema_name)
+    #loadFromCSV(file_path, table_name, schema_name)
 
     endtime = timeit.default_timer()
     print(f"Success: operation finished in : {(endtime - starttime):.3f} Seconds")

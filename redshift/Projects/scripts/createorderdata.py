@@ -5,6 +5,7 @@ from datetime import datetime, timedelta, date
 import timeit
 import sys
 
+
 brand_name = ['Apple', 'Samsung', 'Nokia']
 product_name = {
     'Apple': ['iphone11', 'iphone12', 'iphone13', 'iphoneSE', 'IpadMax', 'IpadMini', 'laptop256', 'Macbook512'],
@@ -20,7 +21,7 @@ def createData(file_name, row_amt):
         rand_brand = np.random.choice(brand_name)  # random brand name from the list
         prod_name = np.random.choice(
             product_name[rand_brand])  # random model number from the dict based on random brand
-        price = round(np.random.uniform(5, 1000), 2)
+        price = round(np.random.uniform(100.02, 1000.02), 2)
         sales_date = getRandomDates()
         row = f"{orderid}, {rand_brand}, {prod_name}, {price}, {sales_date} \n"
 
@@ -53,3 +54,6 @@ def main():
 if __name__ == "__main__":
     main()
 
+col1, col2
+
+shrey, "shey,s"
