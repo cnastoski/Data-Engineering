@@ -1,0 +1,49 @@
+1. Create  a file:
+col:
+product_name varchar(20),
+manufacturingcost decimal(5,2)
+
+For each product build record using python script.
+'iphon11','iphone12','iphone13','iphoneSE','IpadMax','IpadMini','laptop256','Macbook512',
+'galaxy10','galaxy11','galaxy12','galaxy13','watch320','watch340'
+'Nk320',''Nk400',''Nk500'
+
+File example:
+iphon11,220
+iphone12,250
+iphone13,290
+
+
+create a table in redshift also.-- table name product_cost
+
+2. Load data into s3 in separate folder (order data must be created earlier in class project 3).
+3. Use copy command  to load data into redshift by.
+4  create a view by joining order and product_cost.
+
+
+5. Create a bucket using boto3 and then list the buckets (from the metadata). make sure the bucket exists else fail.
+6. Unload data from view into s3 bucket (this has to be separate bucket then created earlier) buckets/transformation/vw_name/    (this has ot be a csv file with header)
+
+
+7. Create a new view by taking all the records where you have profit. Profit is sales amount -manufacturingcost. So add all the fields from order table
+and cost from product_cost.
+8. Create col as profit_group the values are [ if profit percenatge is more 10% the "Bumper profit", it is 0 to 10% then "Marginal profit"
+if it is -5% to 0% then "Loss making" else "Bumper Loss"
+9. Unload the view into a s3 file.
+10. Create another view to show total profit by each brand_name,year-mth cd (ex:202201,202203). Do a rank by the total profit (desc) and
+amount of product sold (Asc)
+11. unload data to a CSV file wtih header and pipe delimited
+
+
+## Hints
+sql questin
+
+import boto3
+
+client = boto3.client('s3')
+response = client.list_buckets()
+print(response)
+response = client.create_bucket(
+Bucket='chris123')
+
+session = boto3.Session(profile_name='dev_acct')

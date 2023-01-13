@@ -20,7 +20,7 @@ def createBucket(bucketname: str, region='us-east-2'):
 
     except botocore.exceptions.ClientError as error:
         print(error)
-        return
+        return 0
 
     bucket_data = s3.list_buckets()['Buckets']
     bucket_names = []
@@ -32,8 +32,11 @@ def createBucket(bucketname: str, region='us-east-2'):
     return 1
 
 
-#createBucket('cnastoski-boto3test2')
 
+bucket_name = "cnastoski-boto3bucket"
+createBucket(bucket_name)
 query = "unload (%s) to %s iam_role %s HEADER FORMAT as CSV PARALLEL OFF"
-args = ["select * from detailed_view", "s3://cnastoski-boto3test2/", "arn:aws:iam::432167795286:role/service-role/AmazonRedshift-CommandsAccessRole-20230110T085953" ]
+args = ["select * from detailed_view", f"s3://{bucket_name}/unload_files/",
+        "arn:aws:iam::432167795286:role/service-role/AmazonRedshift-CommandsAccessRole-20230110T085953"]
+
 db.do_query(query, args)
