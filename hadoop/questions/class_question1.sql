@@ -40,13 +40,13 @@ tran_id int, cust_id varchar(20),tran_date date,tran_ammount decimal(10,2), tran
 
 4. Find out duplicate transaction in total.
 
-    SELECT tran_id, cust_id, tran_date, tran_amount, tran_type, COUNT(*) as record_count
+    SELECT tran_id, cust_id, tran_date, tran_amount, tran_type
     FROM hadoop.tran_fact
     GROUP BY tran_id, cust_id, tran_date, tran_amount, tran_type
-    HAVING COUNT(*) > 1;
+    HAVING COUNT(*) > 1
 
 
 5. show the transaction which has debit but never credit before.
 
     SELECT * FROM hadoop.tran_fact
-    WHERE tran_type = 'D' AND cust_id NOT IN (SELECT cust_id FROM hadoop.tran_fact WHERE tran_type = 'C');
+    WHERE tran_type = 'D' AND cust_id NOT IN (SELECT cust_id FROM hadoop.tran_fact WHERE tran_type = 'C')
