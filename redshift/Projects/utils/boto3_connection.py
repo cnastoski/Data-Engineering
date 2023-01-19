@@ -57,5 +57,3 @@ def delete_folder(bucket_name, folder_name):
     bucket = resource.Bucket(bucket_name)
     bucket.objects.filter(Prefix=f"{folder_name}/").delete()
 
-
-delete_folder('cnastoski-boto3bucket', 'test')
