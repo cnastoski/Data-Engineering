@@ -35,7 +35,16 @@ def createBucket(bucketname: str, region='us-east-2'):
     return 1
 
 
-def add_file(file_path, bucket_name, object_name=None, region_name='us-east-2'):
+def add_file(file_path, bucket_name, object_name=None):
+    """
+    copies a file from a local directory into the specified s3 bucket
+    :param file_path: path to your file to upload
+    :param bucket_name: name of the bucket to upload to
+    :param object_name: optional name of the file in s3. default will be the name in file path, can create folders
+                        using this argument as well using / to specify a directory
+    :return: 1 if successful
+    """
+
     client = boto3.client('s3')
 
     if object_name is None:

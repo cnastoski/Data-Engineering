@@ -8,8 +8,14 @@ def create_data(start_date, end_date):
     country_codes = ['USA', 'CAN', 'IND', 'AFG', 'CHN', 'JPN', 'KON', 'PAL']
     tran_types = ['C', 'D']
 
-    for days in range(int(start_date[-2:]), int(end_date[-2:]) + 1):
-        date = start_date[0:-1] + str(days)
+    start_day = int(start_date[-2:])
+    end_day = int(end_date[-2:])
+
+    for days in range(start_day, end_day + 1):
+        if days < 10:
+            date = start_date[0:-1] + str(days)
+        else:
+            date = start_date[0:-2] + str(days)
         file = open(f"{input_dir}{date}.csv", 'w')
         file.write("tran_id,cust_id,tran_amount,tran_type,country_cd,tran_date\n")
 
