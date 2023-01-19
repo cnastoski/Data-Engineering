@@ -1,6 +1,5 @@
 import boto3
 import botocore
-import db_driver as db
 
 
 def createBucket(bucketname: str, region='us-east-2'):
@@ -36,6 +35,27 @@ def createBucket(bucketname: str, region='us-east-2'):
     return 1
 
 
-def add_file(file_name, bucket_name):
-    pass
-    # TODO: add in function
+def add_file(file_path, bucket_name, object_name=None, region_name='us-east-2'):
+    client = boto3.client('s3')
+
+    if object_name is None:
+        client.upload_file(file_path, bucket_name)
+    else:
+        with open(file_path, 'rb') as file:
+            client.upload_fileobj(file, bucket_name, object_name)
+    return 1
+
+
+def delete_file(bucket_name, file_name):
+    resource = boto3.resource('s3')
+    resource.Object(bucket_name, file_name).delete()
+    return 1
+
+
+def delete_folder(bucket_name, folder_name):
+    resource = boto3.resource('s3')
+    bucket = resource.Bucket(bucket_name)
+    bucket.objects.filter(Prefix=f"{folder_name}/").delete()
+
+
+delete_folder('cnastoski-boto3bucket', 'test')

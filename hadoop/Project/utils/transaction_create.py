@@ -16,7 +16,7 @@ def create_data(start_date, end_date):
         for i in range(round(random.uniform(1000, 10000))):
             tran_id = random.choice(id_prefix) + "_" + str(start_id)
             cust_id = 'cust_' + str(round(random.uniform(1000, 9999)))
-            tran_amount = round(random.uniform(1.02, 99999999.02), 2)
+            tran_amount = round(random.uniform(1.02, 9999999.02), 2)
             tran_type = random.choice(tran_types)
             country_code = random.choice(country_codes)
             tran_date = date
@@ -27,4 +27,3 @@ def create_data(start_date, end_date):
         file.close()
 
 
-create_data('2022-01-01', '2022-01-02')
