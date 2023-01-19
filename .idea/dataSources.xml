@@ -9,5 +9,12 @@
       <jdbc-url>jdbc:redshift://quintrix-aws-training.cc8pfomfxbpw.us-east-2.redshift.amazonaws.com:5439/dev</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="Data_engineering@localhost" uuid="61d63ccc-4e85-468b-8b1f-6a32e3d48fd9">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/Data_engineering</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
