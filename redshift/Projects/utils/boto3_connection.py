@@ -34,3 +34,8 @@ def createBucket(bucketname: str, region='us-east-2'):
 
     print(f"Bucket List: {bucket_names}")
     return 1
+
+
+def add_file(file_name, bucket_name):
+    pass
+    # TODO: add in function
