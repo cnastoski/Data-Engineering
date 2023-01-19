@@ -9,4 +9,4 @@ query = "unload (%s) to %s iam_role %s HEADER FORMAT as CSV PARALLEL OFF"
 args = ["select * from cards_ingest.detailed_view", f"s3://{bucket_name}/unload_files/",
         "arn:aws:iam::432167795286:role/service-role/AmazonRedshift-CommandsAccessRole-20230110T085953"]
 
-db.do_query(query, args)
+db.do_query_string(query, args)

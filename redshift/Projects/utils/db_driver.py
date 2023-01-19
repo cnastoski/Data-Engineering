@@ -3,6 +3,7 @@ import psycopg2
 import pandas as pd
 from sqlalchemy import create_engine
 from sqlalchemy.engine.url import URL
+import re
 import timeit
 
 engine = create_engine(URL.create(
@@ -15,7 +16,7 @@ engine = create_engine(URL.create(
 ))
 
 
-def do_query(query: str, args):
+def do_query_string(query: str, args):
     """
     execute postgresql query via postcopg2 on database configured in config/database_connection.py :param query:
     postgresql query string :param args: arguments for query string (see
@@ -71,6 +72,28 @@ def do_frameToTable(frame, table_name: str, schema: str):
     return frame.to_sql(table_name, con=engine, schema=schema, if_exists='replace', index=False, method='multi')
 
 
-def create_table():
-    pass
-    # TODO: add in function
+def query_from_file(file_path):
+    # Read the SQL file
+    with open(file_path, 'r') as f:
+        sql_query = f.read()
+
+    # remove comments
+    sql_query = re.sub(r"/\*[^*]*\*+(?:[^*/][^*]*\*+)*/", "", sql_query)
+
+    conn = psycopg2.connect(host=db.hostname, user=db.username, password=db.password, dbname=db.database,
+                            port=db.port)
+    cur = conn.cursor()
+    # Execute the query
+    cur.execute(sql_query)
+
+    frame = None
+
+    if cur.description:  # checks for returned table (if it has a description, the query has returned a table)
+        data = cur.fetchall()
+        column_names = [i[0] for i in cur.description]
+        frame = pd.DataFrame(data, columns=column_names)
+    cur.close()
+    conn.commit()
+    conn.close()
+    return frame
+

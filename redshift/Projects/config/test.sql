@@ -1,0 +1,1 @@
+SELECT * FROM cards_ingest.tran_fact
