@@ -1,6 +1,6 @@
 import random
 
-
+# TODO: add in function overloads for different input methods
 def create_data(start_date, end_date):
     input_dir = "C:/Users/cnast/Desktop/aws_learning-main/hadoop/Project/config/"
     id_prefix = ['FX', 'TD']
@@ -25,5 +25,6 @@ def create_data(start_date, end_date):
 
             start_id += 1
         file.close()
+
 
 

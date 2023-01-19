@@ -21,8 +21,15 @@ tran_id int, cust_id varchar(20),tran_date date,tran_ammount decimal(10,2), tran
 
 2. Total number of unique customer till date
 
-    select count(distinct cust_id) as unique_customers
-    from hadoop.tran_fact
+    WITH previous_customers AS (
+        SELECT DISTINCT tran_date,cust_id FROM hadoop.tran_fact
+    )
+    SELECT t.tran_date, COUNT(DISTINCT t.cust_id) as new_customers, SUM(COUNT(DISTINCT t.cust_id)) OVER (ORDER BY t.tran_date) as running_total
+    FROM hadoop.tran_fact t
+    LEFT JOIN previous_customers pc ON t.cust_id = pc.cust_id AND t.tran_date > pc.tran_date
+    WHERE pc.cust_id IS NULL
+    GROUP BY t.tran_date
+    ORDER BY t.tran_date;
 
 3. Total transaction amount per customer per day ( if its C then add if D then subtract )
 
