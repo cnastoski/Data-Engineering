@@ -1,9 +1,14 @@
 import boto3
 import botocore
-import cust_db_driver as db
+import db_driver as db
 
 
 def createBucket(bucketname: str, region='us-east-2'):
+    """
+    :param bucketname : name of the bucket to create. Must be globally unique
+    :param region : region that the bucket should be created in
+    :returns : 1 if successful, prints error if fails
+    """
     s3 = boto3.client('s3', region_name=region)
     location = {'LocationConstraint': region}
 
@@ -28,15 +33,4 @@ def createBucket(bucketname: str, region='us-east-2'):
         bucket_names.append(name['Name'])
 
     print(f"Bucket List: {bucket_names}")
-
     return 1
-
-
-
-bucket_name = "cnastoski-boto3bucket"
-createBucket(bucket_name)
-query = "unload (%s) to %s iam_role %s HEADER FORMAT as CSV PARALLEL OFF"
-args = ["select * from detailed_view", f"s3://{bucket_name}/unload_files/",
-        "arn:aws:iam::432167795286:role/service-role/AmazonRedshift-CommandsAccessRole-20230110T085953"]
-
-db.do_query(query, args)

@@ -15,7 +15,7 @@ product_name = {
 
 def createData(file_name, row_amt):
     orderid = 1000001
-    db_file = open(f"C:/Users/cnast/Desktop/aws_learning-main/redshift/Projects/utils/{file_name}", "w")
+    db_file = open(f"C:/Users/cnast/Desktop/aws_learning-main/redshift/Projects/config/{file_name}", "w")
     db_file.write("orderid, brand_name, product_name, sales_amount, sales_date\n")
     for i in range(row_amt):
         rand_brand = np.random.choice(brand_name)  # random brand name from the list
@@ -53,7 +53,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-col1, col2
-
-shrey, "shey,s"

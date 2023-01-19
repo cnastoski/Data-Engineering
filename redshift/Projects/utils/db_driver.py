@@ -39,7 +39,8 @@ def do_query(query: str, args):
 
     return frame
 
-def loadFromCSV(filePathName : str, table_name : str, schema : str):
+
+def loadFromCSV(filePathName: str, table_name: str, schema: str):
     """
     execute postgresql query to append schema.table_name with frame data on connected database;
     frame is filled by data in filePathName csv file
@@ -54,7 +55,8 @@ def loadFromCSV(filePathName : str, table_name : str, schema : str):
     frame = pd.read_csv(filePathName)
     return do_frameToTable(frame, table_name, schema)
 
-def do_frameToTable(frame, table_name : str, schema : str) :
+
+def do_frameToTable(frame, table_name: str, schema: str):
     """
     execute postgresql query to apend schema.table_name with frame data on connected database
     :param frame: pandas frame that will overwrite schema.table_name
@@ -65,22 +67,23 @@ def do_frameToTable(frame, table_name : str, schema : str) :
     :return: None or Int
     :rtype: None if rows not returned, Int equal to number of rows affected (if integer returned for rows by sqlalchemy)
     """
-    # CLOSE THE ENGINE???
-    return frame.to_sql(table_name, con = engine, schema=schema, if_exists='replace', index=False, method='multi')
+
+    return frame.to_sql(table_name, con=engine, schema=schema, if_exists='replace', index=False, method='multi')
 
 
 def main():
-    file_path = 'C:/Users/cnast/Desktop/aws_learning-main/redshift/Questions/data_creation_scripts/order_data_20230401.csv'
+    file_path = '/redshift/Questions/data_creation_scripts/order_data_20230401.csv'
     table_name = 'manufacturing_info'
     schema_name = 'cards_ingest'
     starttime = timeit.default_timer()
     print(f"Inserting table {table_name} into {schema_name}...")
 
-    #loadFromCSV(file_path, table_name, schema_name)
+    # loadFromCSV(file_path, table_name, schema_name)
 
     endtime = timeit.default_timer()
     print(f"Success: operation finished in : {(endtime - starttime):.3f} Seconds")
     return 1
+
 
 if __name__ == "__main__":
     main()
