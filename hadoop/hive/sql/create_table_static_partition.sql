@@ -21,7 +21,7 @@ acct_hldr_last_name varchar(20),
 dataset_date varchar(50))
 partitioned by (load_date varchar(10))
 row format delimited fields terminated by ','
-location "s3://aws-train-nov-de-data/data/src_customer/customer_details_source_partitions/"
+location "s3://cnastoski-clibucket-ohio/src_customer/customer_details_source_partitions/"
 tblproperties ("skip.header.line.count"="1") ;
 
 -- Command to describe table structure
@@ -34,7 +34,7 @@ show partitions customer_details_source_partitions;
 
 alter table customer_details_source_partitions add partition (load_date='2022-01-02');
 
-aws s3 cp s3://aws-train-nov-de/cards_ingest/account_src/cards_account_ingest_2022-01-02.csv s3://aws-train-nov-de-data/data/src_customer/customer_details_source_partitions/load_date='2022-01-02'/
+aws s3 cp s3://cnastoski-clibucket-ohio/cards_account_ingest_2022-01-02.csv s3://cnastoski-clibucket-ohio/src_customer/customer_details_source_partitions/load_date='2022-01-02'/
 
 select count(1),load_date from customer_details_source_partitions group by load_date ;
 +-------+-------------+
@@ -54,7 +54,7 @@ select count(1),load_date from customer_details_source_partitions group by load_
 +-------+-------------+
 | 4999  | 2022-01-02  |
 +-------+-------------+
-aws s3 cp s3://aws-train-nov-de/cards_ingest/account_src/cards_account_ingest_2022-01-03.csv s3://aws-train-nov-de-data/data/src_customer/customer_details_source_partitions/load_date='2022-01-03'/
+aws s3 cp s3://cnastoski-clibucket-ohio/cards_account_ingest_2022-01-03.csv s3://cnastoski-clibucket-ohio/src_customer/customer_details_source_partitions/load_date='2022-01-03'/
 
 select count(1),load_date from customer_details_source_partitions group by load_date ;
 +-------+-------------+
