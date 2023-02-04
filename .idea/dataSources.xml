@@ -16,5 +16,12 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/Data_engineering</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="Local Hive Server" uuid="acf2b1e7-3f6c-4c4d-b189-abeb30d35136">
+      <driver-ref>hive</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.apache.hive.jdbc.HiveDriver</jdbc-driver>
+      <jdbc-url>jdbc:hive2://10.12.1.69:10000</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

@@ -1,0 +1,22 @@
+1. What is hdoop architecture. Diagram
+
+
+
+2. What is hdfs file system? Whats the benefit?
+
+    HDFS is a distributed file system used in the hadoop ecosystem that can be distributed over multiple locations.
+
+    benefits:
+        -able to be run on low cost machines
+        -highly scalable
+        -redundancy
+
+
+3. What is a block in hdfs? Default size?
+
+    a block is the smallest unit of storage in the system, for HDFS the default is 128MB or 256MB
+
+
+4. What are various file format?
+
+    csv, parquet, txt, json?
