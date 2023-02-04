@@ -1,0 +1,260 @@
+                    acct_hldr_primary_addr_state MA
+                    dataset_date 2022-01-03
+                  properties:
+                    COLUMN_STATS_ACCURATE {"BASIC_STATS":"true","COLUMN_STATS":{"account_id":"true","account_id_type":"true","account_open_dt":"true","acct_hldr_first_name":"true","acct_hldr_last_name":"true","acct_hldr_primary_addr_zip_cd":"true"}}
+                    bucket_count -1
+                    column.name.delimiter ,
+                    columns account_id,account_open_dt,account_id_type,acct_hldr_primary_addr_zip_cd,acct_hldr_first_name,acct_hldr_last_name
+                    columns.comments
+                    columns.types varchar(50):varchar(50):varchar(10):varchar(20):varchar(20):varchar(20)
+                    file.inputformat org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat
+                    file.outputformat org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat
+                    location s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=MA
+                    name src_customer.customer_details_partition_dynamic
+                    numFiles 1
+                    numRows 58
+                    partition_columns dataset_date/acct_hldr_primary_addr_state
+                    partition_columns.types varchar(20):varchar(50)
+                    rawDataSize 348
+                    serialization.ddl struct customer_details_partition_dynamic { varchar(50) account_id, varchar(50) account_open_dt, varchar(10) account_id_type, varchar(20) acct_hldr_primary_addr_zip_cd, varchar(20) acct_hldr_first_name, varchar(20) acct_hldr_last_name}
+                    serialization.format 1
+                    serialization.lib org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe
+                    totalSize 3663
+                    transient_lastDdlTime 1675041486
+                  serde: org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe
+
+                    input format: org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat
+                    output format: org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat
+                    properties:
+                      bucket_count -1
+                      bucketing_version 2
+                      column.name.delimiter ,
+                      columns account_id,account_open_dt,account_id_type,acct_hldr_primary_addr_zip_cd,acct_hldr_first_name,acct_hldr_last_name
+                      columns.comments
+                      columns.types varchar(50):varchar(50):varchar(10):varchar(20):varchar(20):varchar(20)
+                      file.inputformat org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat
+                      file.outputformat org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat
+                      location s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic
+                      name src_customer.customer_details_partition_dynamic
+                      parquet.compression SNAPPY
+                      partition_columns dataset_date/acct_hldr_primary_addr_state
+                      partition_columns.types varchar(20):varchar(50)
+                      serialization.ddl struct customer_details_partition_dynamic { varchar(50) account_id, varchar(50) account_open_dt, varchar(10) account_id_type, varchar(20) acct_hldr_primary_addr_zip_cd, varchar(20) acct_hldr_first_name, varchar(20) acct_hldr_last_name}
+                      serialization.format 1
+                      serialization.lib org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe
+                      transient_lastDdlTime 1675041193
+                    serde: org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe
+                    name: src_customer.customer_details_partition_dynamic
+                  name: src_customer.customer_details_partition_dynamic
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=MD
+                Partition
+                  base file name: acct_hldr_primary_addr_state=MD
+                  input format: org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat
+                  output format: org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat
+                  partition values:
+                    acct_hldr_primary_addr_state MD
+                    dataset_date 2022-01-03
+                  properties:
+                    COLUMN_STATS_ACCURATE {"BASIC_STATS":"true","COLUMN_STATS":{"account_id":"true","account_id_type":"true","account_open_dt":"true","acct_hldr_first_name":"true","acct_hldr_last_name":"true","acct_hldr_primary_addr_zip_cd":"true"}}
+                    bucket_count -1
+                    column.name.delimiter ,
+                    columns account_id,account_open_dt,account_id_type,acct_hldr_primary_addr_zip_cd,acct_hldr_first_name,acct_hldr_last_name
+                    columns.comments
+                    columns.types varchar(50):varchar(50):varchar(10):varchar(20):varchar(20):varchar(20)
+                    file.inputformat org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat
+                    file.outputformat org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat
+                    location s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=MD
+                    name src_customer.customer_details_partition_dynamic
+                    numFiles 1
+                    numRows 46
+                    partition_columns dataset_date/acct_hldr_primary_addr_state
+                    partition_columns.types varchar(20):varchar(50)
+                    rawDataSize 276
+                    serialization.ddl struct customer_details_partition_dynamic { varchar(50) account_id, varchar(50) account_open_dt, varchar(10) account_id_type, varchar(20) acct_hldr_primary_addr_zip_cd, varchar(20) acct_hldr_first_name, varchar(20) acct_hldr_last_name}
+                    serialization.format 1
+                    serialization.lib org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe
+                    totalSize 3223
+                    transient_lastDdlTime 1675041484
+                  serde: org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe
+
+                    input format: org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat
+                    output format: org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat
+                    properties:
+                      bucket_count -1
+                      bucketing_version 2
+                      column.name.delimiter ,
+                      columns account_id,account_open_dt,account_id_type,acct_hldr_primary_addr_zip_cd,acct_hldr_first_name,acct_hldr_last_name
+                      columns.comments
+                      columns.types varchar(50):varchar(50):varchar(10):varchar(20):varchar(20):varchar(20)
+                      file.inputformat org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat
+                      file.outputformat org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat
+                      location s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic
+                      name src_customer.customer_details_partition_dynamic
+                      parquet.compression SNAPPY
+                      partition_columns dataset_date/acct_hldr_primary_addr_state
+                      partition_columns.types varchar(20):varchar(50)
+                      serialization.ddl struct customer_details_partition_dynamic { varchar(50) account_id, varchar(50) account_open_dt, varchar(10) account_id_type, varchar(20) acct_hldr_primary_addr_zip_cd, varchar(20) acct_hldr_first_name, varchar(20) acct_hldr_last_name}
+                      serialization.format 1
+                      serialization.lib org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe
+                      transient_lastDdlTime 1675041193
+                    serde: org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe
+                    name: src_customer.customer_details_partition_dynamic
+                  name: src_customer.customer_details_partition_dynamic
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=ME
+                Partition
+                  base file name: acct_hldr_primary_addr_state=ME
+                  input format: org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat
+                  output format: org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat
+                  partition values:
+                    acct_hldr_primary_addr_state ME
+                    dataset_date 2022-01-03
+                  properties:
+                    COLUMN_STATS_ACCURATE {"BASIC_STATS":"true","COLUMN_STATS":{"account_id":"true","account_id_type":"true","account_open_dt":"true","acct_hldr_first_name":"true","acct_hldr_last_name":"true","acct_hldr_primary_addr_zip_cd":"true"}}
+                    bucket_count -1
+                    column.name.delimiter ,
+                    columns account_id,account_open_dt,account_id_type,acct_hldr_primary_addr_zip_cd,acct_hldr_first_name,acct_hldr_last_name
+                    columns.comments
+                    columns.types varchar(50):varchar(50):varchar(10):varchar(20):varchar(20):varchar(20)
+                    file.inputformat org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat
+                    file.outputformat org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat
+                    location s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=ME
+                    name src_customer.customer_details_partition_dynamic
+                    numFiles 1
+                    numRows 46
+                    partition_columns dataset_date/acct_hldr_primary_addr_state
+                    partition_columns.types varchar(20):varchar(50)
+                    rawDataSize 276
+                    serialization.ddl struct customer_details_partition_dynamic { varchar(50) account_id, varchar(50) account_open_dt, varchar(10) account_id_type, varchar(20) acct_hldr_primary_addr_zip_cd, varchar(20) acct_hldr_first_name, varchar(20) acct_hldr_last_name}
+                    serialization.format 1
+                    serialization.lib org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe
+                    totalSize 3178
+                    transient_lastDdlTime 1675041488
+                  serde: org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe
+
+                    input format: org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat
+                    output format: org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat
+                    properties:
+                      bucket_count -1
+                      bucketing_version 2
+                      column.name.delimiter ,
+                      columns account_id,account_open_dt,account_id_type,acct_hldr_primary_addr_zip_cd,acct_hldr_first_name,acct_hldr_last_name
+                      columns.comments
+                      columns.types varchar(50):varchar(50):varchar(10):varchar(20):varchar(20):varchar(20)
+                      file.inputformat org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat
+                      file.outputformat org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat
+                      location s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic
+                      name src_customer.customer_details_partition_dynamic
+                      parquet.compression SNAPPY
+                      partition_columns dataset_date/acct_hldr_primary_addr_state
+                      partition_columns.types varchar(20):varchar(50)
+                      serialization.ddl struct customer_details_partition_dynamic { varchar(50) account_id, varchar(50) account_open_dt, varchar(10) account_id_type, varchar(20) acct_hldr_primary_addr_zip_cd, varchar(20) acct_hldr_first_name, varchar(20) acct_hldr_last_name}
+                      serialization.format 1
+                      serialization.lib org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe
+                      transient_lastDdlTime 1675041193
+                    serde: org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe
+                    name: src_customer.customer_details_partition_dynamic
+                  name: src_customer.customer_details_partition_dynamic
+            Truncated Path -> Alias:
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=AK [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=AL [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=AR [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=AZ [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=CA [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=CO [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=CT [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=DC [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=DE [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=FL [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=GA [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=HI [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=IA [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=ID [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=IL [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=IN [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=KS [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=KY [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=LA [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=MA [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=MD [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-02/acct_hldr_primary_addr_state=ME [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=AK [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=AL [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=AR [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=AZ [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=CA [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=CO [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=CT [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=DC [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=DE [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=FL [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=GA [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=HI [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=IA [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=ID [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=IL [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=IN [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=KS [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=KY [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=LA [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=MA [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=MD [customer_details_partition_dynamic]
+              s3://aws-train-nov-de-data/data/src_customer/customer_details_partition_dynamic/dataset_date=2022-01-03/acct_hldr_primary_addr_state=ME [customer_details_partition_dynamic]
+        Reducer 2
+            Execution mode: vectorized
+            Needs Tagging: false
+            Reduce Operator Tree:
+              Group By Operator
+                aggregations: count(VALUE._col0)
+                keys: KEY._col0 (type: varchar(20)), KEY._col1 (type: varchar(50))
+                mode: mergepartial
+                outputColumnNames: _col0, _col1, _col2
+                Statistics: Num rows: 2999 Data size: 17994 Basic stats: COMPLETE Column stats: NONE
+                Select Operator
+                  expressions: _col2 (type: bigint), _col0 (type: varchar(20)), _col1 (type: varchar(50))
+                  outputColumnNames: _col0, _col1, _col2
+                  Statistics: Num rows: 2999 Data size: 17994 Basic stats: COMPLETE Column stats: NONE
+                  Reduce Output Operator
+                    key expressions: _col0 (type: bigint)
+                    null sort order: z
+                    sort order: -
+                    Statistics: Num rows: 2999 Data size: 17994 Basic stats: COMPLETE Column stats: NONE
+                    tag: -1
+                    value expressions: _col1 (type: varchar(20)), _col2 (type: varchar(50))
+                    auto parallelism: false
+        Reducer 3
+            Execution mode: vectorized
+            Needs Tagging: false
+            Reduce Operator Tree:
+              Select Operator
+                expressions: KEY.reducesinkkey0 (type: bigint), VALUE._col0 (type: varchar(20)), VALUE._col1 (type: varchar(50))
+                outputColumnNames: _col0, _col1, _col2
+                Statistics: Num rows: 2999 Data size: 17994 Basic stats: COMPLETE Column stats: NONE
+                File Output Operator
+                  compressed: false
+                  GlobalTableId: 0
+                  directory: hdfs://ip-172-31-85-225.ec2.internal:8020/tmp/hive/anonymous/c1e3b8f7-f499-40d4-b0eb-501bb287dfff/hive_2023-01-30_01-20-22_243_6716018828233641544-2/-mr-10001/.hive-staging_hive_2023-01-30_01-20-22_243_6716018828233641544-2/-ext-10002
+                  NumFilesPerFileSink: 1
+                  Statistics: Num rows: 2999 Data size: 17994 Basic stats: COMPLETE Column stats: NONE
+                  Stats Publishing Key Prefix: hdfs://ip-172-31-85-225.ec2.internal:8020/tmp/hive/anonymous/c1e3b8f7-f499-40d4-b0eb-501bb287dfff/hive_2023-01-30_01-20-22_243_6716018828233641544-2/-mr-10001/.hive-staging_hive_2023-01-30_01-20-22_243_6716018828233641544-2/-ext-10002/
+                  table:
+                      input format: org.apache.hadoop.mapred.SequenceFileInputFormat
+                      output format: org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat
+                      properties:
+                        columns _col0,_col1,_col2
+                        columns.types bigint:varchar(20):varchar(50)
+                        escape.delim \
+                        hive.serialization.extend.additional.nesting.levels true
+                        serialization.escape.crlf true
+                        serialization.format 1
+                        serialization.lib org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe
+                      serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe
+                  TotalFiles: 1
+                  GatherStats: false
+                  MultiFileSpray: false
+
+  Stage: Stage-0
+    Fetch Operator
+      limit: -1
+      Processor Tree:
+        ListSink
+

@@ -1,0 +1,18 @@
+1.Create table :tran_fact
+tran_id int, cust_id varchar(20),tran_ammount decimal(10,2), tran_type varchar(1), tran_country_cd varchar(3),tran_date date
+tran_id : random id (ex : FX_20220201_123456,TD_20220201_224452  (Concat [FX/TD] with 12 digit number)
+cust_id : cust_12345 (concat cust+ 4 digit number)
+tran_ammount : $ ammount ( 3 dgit to 10 digit number)
+tran_type : C/D (Random Value)
+country_cd : ['USA','CAN','IND','AFG','CHN','JPN','KON','PAL']
+tran_date : ['2022-01-01' to '2022-03-10' ]
+
+Generate records for every day with the date range given [ each day generate 1000 to 10000 records]
+
+2. Load each file into s3. [ each with folder as 20220101,20220102] [ use boto3 to push to s3]
+3.Create table in Redshift.
+4. Copy data to redshift  [append mode]
+
+
+
+1. Unload query sum(tran)amt by country cd to parquet file in s3.

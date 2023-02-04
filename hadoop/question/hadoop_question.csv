@@ -1,0 +1,26 @@
+1. What is hdoop architecture. Diagram
+2. What is hdfs file system? Whats the benefit?
+3. What is a block in hdfs? Default size?
+4. What are various file format?
+
+
+aws emr create-cluster --os-release-label 2.0.20221210.1 --applications Name=Hadoop Name=Spark Name=Livy Name=Hive Name=JupyterEnterpriseGateway --tags 'creator=NOTEBOOK_CONSOLE'
+--ec2-attributes '{"KeyName":"sanjeeb_ec2","InstanceProfile":"EMR_EC2_DefaultRole","SubnetId":"subnet-0f7dd018f9f44a685","EmrManagedSlaveSecurityGroup":"sg-0f24caabca7daf52b","EmrManagedMasterSecurityGroup":"sg-006fd4680d89f7a1e"}' --service-role EMR_DefaultRole --release-label emr-5.36.0 --log-uri 's3n://aws-logs-341966982503-us-east-1/elasticmapreduce/' --auto-termination-policy '{"IdleTimeout":3600}' --name 'notebook_dev' --instance-groups '[{"InstanceCount":1,"EbsConfiguration":{"EbsBlockDeviceConfigs":[{"VolumeSpecification":{"SizeInGB":32,"VolumeType":"gp2"},"VolumesPerInstance":1}]},"InstanceGroupType":"MASTER","InstanceType":"m4.large","Name":"Master Instance Group"}]' --scale-down-behavior TERMINATE_AT_TASK_COMPLETION --region us-east-1
+
+
+ssh -i sanjeeb_ec2.pem hadoop@ec2-3-82-66-47.compute-1.amazonaws.com
+
+[hadoop@ip-172-31-32-168 ~]$ hdfs dfs -mkdir
+/user/data/customer/
+
+
+[hadoop@ip-172-31-32-168 ~]$ hdfs dfs -cp s3://aws-train-nov-de-data/ingestion/customer_info/cust_20230101.csv /user/data/customer/
+23/01/27 15:31:44 INFO s3n.S3NativeFileSystem: Opening 's3://aws-train-nov-de-data/ingestion/customer_info/cust_20230101.csv' for reading
+[hadoop@ip-172-31-32-168 ~]$ hdfs dfs -ls  /user/data/customer/
+Found 1 items
+-rw-r--r--   1 hadoop hdfsadmingroup         27 2023-01-27 15:31 /user/data/customer/cust_20230101.csv
+
+hdfs dfs -cat /user/data/customer/cust_20230101.csv
+
+hdfs dfs -cat /user/data/customer/cust_20230101.csv | wc
+
