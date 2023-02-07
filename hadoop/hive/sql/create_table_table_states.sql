@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS table_states(
     partition_key varchar(30),
     rec_count int,
     load_date date)
-    PARTITIONED BY (execution_key varchar(100))
+PARTITIONED BY (execution_key varchar(100))
 STORED AS parquet
 TBLPROPERTIES ("parquet.compression"="SNAPPY");
 

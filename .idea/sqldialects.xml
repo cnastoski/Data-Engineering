@@ -3,9 +3,11 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/hadoop/Project/config/create_table.sql" dialect="Redshift" />
     <file url="file://$PROJECT_DIR$/hadoop/Project/config/unload_sum.sql" dialect="Redshift" />
-    <file url="file://$PROJECT_DIR$/hadoop/hive/sql/create transaction_fact.sql" dialect="HiveQL" />
     <file url="file://$PROJECT_DIR$/hadoop/hive/sql/create_table_table_states.sql" dialect="HiveQL" />
-    <file url="file://$PROJECT_DIR$/hadoop/hive/sql/insert_transaction_fact.sql" dialect="HiveQL" />
+    <file url="file://$PROJECT_DIR$/hadoop/hive/sql/ev_vehicle_info/create_vehicle_info.sql" dialect="HiveQL" />
+    <file url="file://$PROJECT_DIR$/hadoop/hive/sql/ev_vehicle_info/num_registered_rank.sql" dialect="HiveQL" />
+    <file url="file://$PROJECT_DIR$/hadoop/hive/sql/transaction_fact/create transaction_fact.sql" dialect="HiveQL" />
+    <file url="file://$PROJECT_DIR$/hadoop/hive/sql/transaction_fact/insert_transaction_fact.sql" dialect="HiveQL" />
     <file url="file://$PROJECT_DIR$/hadoop/questions/class_question1.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/sql_learing/questions/group1/question2.sql" dialect="GenericSQL" />
     <file url="PROJECT" dialect="Redshift" />
