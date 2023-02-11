@@ -15,9 +15,9 @@ if create_data:
 
 # add all csv files into s3
 if add_to_s3:
-    # add_file('C:/Users/cnast/Desktop/aws_learning-main/hadoop/Project/config/2022-01-01.csv',
+    # add_file('C:/Users/cnast/Desktop/aws_learning-main/hadoop/project/config/2022-01-01.csv',
     # 'cnastoski-boto3bucket', 'test_data/2022-01-01.csv')
-    directory = "C:\\Users\\cnast\\Desktop\\aws_learning-main\\hadoop\\Project\\config"
+    directory = "C:\\Users\\cnast\\Desktop\\aws_learning-main\\hadoop\\project\\config"
 
     for file in os.listdir(directory):
         # only upload csv files in the directory
@@ -31,5 +31,5 @@ if create_table:
 
 # copy files from s3 to redshift
 if copy_to_table:
-    db.loadFromCSV("C:\\Users\\cnast\\Desktop\\aws_learning-main\\hadoop\\Project\\config\\2022-05-09.csv", "tran_fact",
+    db.loadFromCSV("C:\\Users\\cnast\\Desktop\\aws_learning-main\\hadoop\\project\\config\\2022-05-09.csv", "tran_fact",
                    "hadoop")
