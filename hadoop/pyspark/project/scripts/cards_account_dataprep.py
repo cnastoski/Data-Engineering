@@ -59,7 +59,7 @@ def build_data(dataset_date, cnt):
         acct_hldr_primary_addr_state = random.choice(['AL','AK','AZ','AR','CA','CO','CT','DE','DC',\
                                                       'FL','GA','HI','ID','IL','IN','IA','KS','KY','LA',\
                                                       'ME','MD','MA'])
-        account_id_type = random.choice(["Saving","Checkin","Private"])
+        account_id_type = random.choice(["Saving","Checking","Private"])
         acct_hldr_first_name=get_random_string(10)
         acct_hldr_last_name=get_random_string(6)
         rec.append(account_id + "~" +
@@ -80,13 +80,13 @@ import os
 rec_cnt=1001
 dataset_dates=["2022-01-01","2022-01-02","2022-01-03","2022-01-04","2022-01-05","2022-01-06","2022-01-07","2022-01-08","2022-01-09","2022-01-10"]
 for d in dataset_dates:
-    data_dir=f"data/cards_ingest/cards_account_ingest/dataset_date={d}/"
+    data_dir=f"data/input_data/dataset_date={d}/"
     if(not os.path.exists(data_dir)):
         os.makedirs(data_dir)
     file_name=data_dir+d + ".csv"
-   
+
     
-    columns=['account_id','account_open_dt','account_id_type','acct_hldr_primary_addr_state',\
+    columns=['account_id','account_open_dt','account_id_type','acct_hldr_primary_addr_state',
                 'acct_hldr_primary_addr_zip_cd','acct_hldr_first_name','acct_hldr_last_name','dataset_date']
     sc = spark.sparkContext
     hist_data = build_data(d, int(rec_cnt))
@@ -94,10 +94,10 @@ for d in dataset_dates:
     histrawInputSplit = histrawInput.map(lambda x: x.split("~"))
     hist_df = spark.createDataFrame(histrawInputSplit, schema=build_schema(d))
     hist_df.toPandas().to_csv(file_name,index=False)
-  
-#
 
 
+
+#aws s3 cp data s3://cnastoski-pyspark/raw_data --recursive
 
 
 

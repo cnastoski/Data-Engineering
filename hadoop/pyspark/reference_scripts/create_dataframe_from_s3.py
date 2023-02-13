@@ -35,7 +35,7 @@ df5=df4.unionAll(df2)
 df2.coalesce(2).write.mode('overwrite').parquet("s3://aws-train-nov-de-data/data/src_customer/customer_details_parquet_write_shrey/load_date=2023-01-02 ")
 df5.repartition('account_id').write.mode('overwrite').parquet("s3://aws-train-nov-de-data/data/src_customer/customer_details_parquet_write/")
 
-spark.sql(""" inser overwrite table select a, b, case when () as d end from table 
+spark.sql(""" insert overwrite table select a, b, case when () as d end from table 
   inner join aaaa""")
 
 df=spark.read.parquet("s3://aws-train-nov-de-data/data/src_customer/customer_details_parquet/")
