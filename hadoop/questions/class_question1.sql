@@ -16,16 +16,16 @@ tran_id int, cust_id varchar(20),tran_date date,tran_ammount decimal(10,2), tran
 --1. Total unique customer per day.
 
     select count(distinct cust_id) as unique_customers, tran_date
-    from hadoop.tran_fact
+    from src_customer.tran_fact
     group by tran_date;
 
 --2. Total number of unique customer till date
 
     WITH previous_customers AS (
-        SELECT DISTINCT tran_date,cust_id FROM hadoop.tran_fact
+        SELECT DISTINCT tran_date,cust_id FROM src_customer.tran_fact
     )
     SELECT t.tran_date, COUNT(DISTINCT t.cust_id) as new_customers, SUM(COUNT(DISTINCT t.cust_id)) OVER (ORDER BY t.tran_date) as running_total
-    FROM hadoop.tran_fact t
+    FROM src_customer.tran_fact t
     LEFT JOIN previous_customers pc ON t.cust_id = pc.cust_id AND t.tran_date > pc.tran_date
     WHERE pc.cust_id IS NULL
     GROUP BY t.tran_date
@@ -34,13 +34,13 @@ tran_id int, cust_id varchar(20),tran_date date,tran_ammount decimal(10,2), tran
 --3. Total transaction amount per customer per day ( if its C then add if D then subtract )
 
     select tran_fact.cust_id, sum(updated_tran) as daily_transaction, tran_fact.tran_date
-    from hadoop.tran_fact
+    from src_customer.tran_fact
     join(select cust_id, tran_date,
     case
         when tran_type = 'D' then -tran_amount
         else tran_amount
     end as updated_tran
-    from hadoop.tran_fact) trans
+    from src_customer.tran_fact) trans
     on trans.cust_id = tran_fact.cust_id
     group by tran_fact.cust_id, tran_fact.tran_date
     order by tran_fact.tran_date;
@@ -48,12 +48,12 @@ tran_id int, cust_id varchar(20),tran_date date,tran_ammount decimal(10,2), tran
 --4. Find out duplicate transaction in total.
 
     SELECT tran_id, cust_id, tran_date, tran_amount, tran_type
-    FROM hadoop.tran_fact
+    FROM src_customer.tran_fact
     GROUP BY tran_id, cust_id, tran_date, tran_amount, tran_type
     HAVING COUNT(*) > 1;
 
 
 --5. show the transaction which has debit but never credit before.
 
-    SELECT * FROM hadoop.tran_fact
-    WHERE tran_type = 'D' AND cust_id NOT IN (SELECT cust_id FROM hadoop.tran_fact WHERE tran_type = 'C');
+    SELECT * FROM src_customer.tran_fact
+    WHERE tran_type = 'D' AND cust_id NOT IN (SELECT cust_id FROM src_customer.tran_fact WHERE tran_type = 'C');

@@ -1,6 +1,3 @@
-# %%
-import numpy as np
-import pandas as pd
 import random
 from random import randint
 import string
@@ -9,6 +6,7 @@ from pyspark.sql.functions import when
 from pyspark.ml.feature import Imputer
 from datetime import datetime, timedelta
 from pyspark import SparkContext
+import os
 
 # %%
 from pyspark.sql import SparkSession
@@ -52,7 +50,7 @@ def build_schema(dataset_date):
 from pyspark import SparkContext 
 def build_data(dataset_date, cnt):
     rec = []
-    for i in range(1,rec_cnt):
+    for i in range(1,cnt):
         account_id =  random.choice(["SV","CK","PV"])+str(randint(27618,189765))
         account_open_dt = getRandomDates()
         acct_hldr_primary_addr_zip_cd=str(randint(23456,98776))
@@ -75,29 +73,49 @@ def build_data(dataset_date, cnt):
 
 
 
-
-import os 
-rec_cnt=1001
-dataset_dates=["2022-01-01","2022-01-02","2022-01-03","2022-01-04","2022-01-05","2022-01-06","2022-01-07","2022-01-08","2022-01-09","2022-01-10"]
-for d in dataset_dates:
-    data_dir=f"data/input_data/dataset_date={d}/"
-    if(not os.path.exists(data_dir)):
-        os.makedirs(data_dir)
-    file_name=data_dir+d + ".csv"
-
-    
-    columns=['account_id','account_open_dt','account_id_type','acct_hldr_primary_addr_state',
-                'acct_hldr_primary_addr_zip_cd','acct_hldr_first_name','acct_hldr_last_name','dataset_date']
-    sc = spark.sparkContext
-    hist_data = build_data(d, int(rec_cnt))
-    histrawInput = sc.parallelize(hist_data)
-    histrawInputSplit = histrawInput.map(lambda x: x.split("~"))
-    hist_df = spark.createDataFrame(histrawInputSplit, schema=build_schema(d))
-    hist_df.toPandas().to_csv(file_name,index=False)
+def inital_load():
+    rec_cnt=1001
+    dataset_dates=["2022-01-01","2022-01-02","2022-01-03","2022-01-04","2022-01-05","2022-01-06","2022-01-07","2022-01-08","2022-01-09","2022-01-10"]
+    for d in dataset_dates:
+        data_dir=f"data/input_data/dataset_date={d}/"
+        if(not os.path.exists(data_dir)):
+            os.makedirs(data_dir)
+        file_name=data_dir+d + ".csv"
 
 
+        columns=['account_id','account_open_dt','account_id_type','acct_hldr_primary_addr_state',
+                    'acct_hldr_primary_addr_zip_cd','acct_hldr_first_name','acct_hldr_last_name','dataset_date']
+        sc = spark.sparkContext
+        hist_data = build_data(d, int(rec_cnt))
+        histrawInput = sc.parallelize(hist_data)
+        histrawInputSplit = histrawInput.map(lambda x: x.split("~"))
+        hist_df = spark.createDataFrame(histrawInputSplit, schema=build_schema(d))
+        hist_df.to_csv(file_name,index=False)
 
-#aws s3 cp data s3://cnastoski-pyspark/raw_data --recursive
+def subsequent_load():
+    rec_cnt = 1001
+    dataset_dates = ["2022-01-14", "2022-01-15", "2022-01-16"]
+    for d in dataset_dates:
+        data_dir=f"data/input_data/dataset_date={d}/"
+        if(not os.path.exists(data_dir)):
+            os.makedirs(data_dir)
+        file_name=data_dir+d + ".csv"
+
+        columns=['account_id','account_open_dt','account_id_type','acct_hldr_primary_addr_state',
+                    'acct_hldr_primary_addr_zip_cd','acct_hldr_first_name','acct_hldr_last_name','dataset_date']
+
+        sc = spark.sparkContext
+        hist_data = build_data(d, int(rec_cnt))
+        histrawInput = sc.parallelize(hist_data)
+        histrawInputSplit = histrawInput.map(lambda x: x.split("~"))
+        hist_df = spark.createDataFrame(histrawInputSplit, schema=build_schema(d))
+        hist_df.toPandas().to_csv(file_name, index=False)
+
+
+subsequent_load()
+
+
+#aws s3 cp data s3://cnastoski-pyspark/raw_data/dataprep --recursive
 
 
 

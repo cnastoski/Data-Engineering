@@ -16,28 +16,13 @@ spark = SparkSession.builder \
 
 # read every csv file one by one
 df1 = spark.read.option("header", True).csv(
-    "s3://cnastoski-pyspark/raw_data/dataprep/input_data/dataset_date=2022-01-01/")
+    "s3://cnastoski-pyspark/raw_data/dataprep/input_data/dataset_date=2022-01-11/")
 df2 = spark.read.option("header", True).csv(
-    "s3://cnastoski-pyspark/raw_data/dataprep/input_data/dataset_date=2022-01-02/")
+    "s3://cnastoski-pyspark/raw_data/dataprep/input_data/dataset_date=2022-01-12/")
 df3 = spark.read.option("header", True).csv(
-    "s3://cnastoski-pyspark/raw_data/dataprep/input_data/dataset_date=2022-01-03/")
-df4 = spark.read.option("header", True).csv(
-    "s3://cnastoski-pyspark/raw_data/dataprep/input_data/dataset_date=2022-01-04/")
-df5 = spark.read.option("header", True).csv(
-    "s3://cnastoski-pyspark/raw_data/dataprep/input_data/dataset_date=2022-01-05/")
-df6 = spark.read.option("header", True).csv(
-    "s3://cnastoski-pyspark/raw_data/dataprep/input_data/dataset_date=2022-01-06/")
-df7 = spark.read.option("header", True).csv(
-    "s3://cnastoski-pyspark/raw_data/dataprep/input_data/dataset_date=2022-01-07/")
-df8 = spark.read.option("header", True).csv(
-    "s3://cnastoski-pyspark/raw_data/dataprep/input_data/dataset_date=2022-01-08/")
-df9 = spark.read.option("header", True).csv(
-    "s3://cnastoski-pyspark/raw_data/dataprep/input_data/dataset_date=2022-01-09/")
-df10 = spark.read.option("header", True).csv(
-    "s3://cnastoski-pyspark/raw_data/dataprep/input_data/dataset_date=2022-01-10/")
+    "s3://cnastoski-pyspark/raw_data/dataprep/input_data/dataset_date=2022-01-13/")
 
-# Then merge them all together
-df_list = [df1, df2, df3, df4, df5, df6, df7, df8, df9, df10]
+df_list = [df1, df2, df3]
 df_main = reduce(DataFrame.unionAll, df_list)
 
 # likewise we can use below code to do it all in one line
@@ -80,8 +65,6 @@ final_df = final_df.select("account_id",
                            "load_time")
 
 # create partitions and upload this file to the transformed_date s3 bucket
-final_df.write.partitionBy("load_time", "dataset_date").mode("overwrite").parquet("s3://cnastoski-pyspark/transform_data/question_1_parquet/")
+final_df.write.partitionBy("load_time", "dataset_date").mode("append").parquet("s3://cnastoski-pyspark/transform_data/question_1_parquet/")
 
-#spark-submit s3://cnastoski-pyspark/scripts/class_question1/question_1.py
-
-
+#spark-submit s3://cnastoski-pyspark/scripts/class_question1/question_1_additional_columns.py
